@@ -1,8 +1,17 @@
-﻿function createTile() {
+/**
+ * @file
+ * The tile feature set.
+ */
 
-    var text = "testing123";
-    var durationSeconds = 10;
+/**
+ * createTile
+ *
+ * @param {string} text Text to display on the tile.
+ * @param {float} durationSeconds Duration to display the tile, in seconds. Defaults to 10.
+ *
+ */
 
+function createTile(text, durationSeconds = 10) {
     var notifications = Windows.UI.Notifications;
     var template = notifications.TileTemplateType.tileWideImageAndText01;
     var tileXml = notifications.TileUpdateManager.getTemplateContent(template);
@@ -21,18 +30,27 @@
 
 document.addEventListener("DOMContentLoaded", createTile, false);
 
-function createSecondaryTile() {
+/**
+ * createSecondaryTile creates a secondary tile.
+ *
+ * @param {string} text Text to display on the secondary tile.
+ * @param {string} activationArguments Arguments to include when the tile activates the app.
+ * @param {string} tileId Id of the secondary tile (so it can be replaced by a matching id). Defaults to the activationArguments.
+ * @param {string} logoUri Uri of the logo to display on the tile.
+ * @param {string} uriSmallLogo Uri of the small logo to display on the tile.
+ * @returns {Promise} promise.
+ */
+function createSecondaryTile(text, activationArguments, tileId = null, logoUri = null, uriSmallLogo = null) {
     var currentTime = new Date();
-    var logoUri = new Windows.Foundation.Uri("ms-appx:///images/Square150x150Logo.png");
-    var uriSmallLogo = new Windows.Foundation.Uri("ms-appx:///images/Square44x44Logo.png");
-    var TileActivationArguments = "testing123";
+    logoUri = logoUri || new Windows.Foundation.Uri("ms-appx:///images/Square150x150Logo.png");
+    uriSmallLogo = uriSmallLogo || new Windows.Foundation.Uri("ms-appx:///images/Square44x44Logo.png");
     var newTileDesiredSize = Windows.UI.StartScreen.TileOptions.showNameOnLogo;
-    var tileId = '123';
-    var text = "testing123123";
+    tileId = tileId || arctivationArguments;
 
     var tile;
     try {
-        tile = new Windows.UI.StartScreen.SecondaryTile(tileId, text, text, TileActivationArguments, newTileDesiredSize, logoUri);
+        tile = new Windows.UI.StartScreen.SecondaryTile(tileId, text, text, activationArguments,
+            newTileDesiredSize, logoUri);
     } catch (e) {
         //Utils.error('failed to create secondary tile', e);
         return;
