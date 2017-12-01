@@ -20,6 +20,7 @@ function createTile(text, durationSeconds = 10) {
     tileTextAttributes[0].appendChild(tileXml.createTextNode(text));
 
     var tileImage = tileXml.getElementsByTagName("image");
+ 
     tileImage[0].attributes['src'] = tileImage;
 
     var tileNotification = new notifications.TileNotification(tileXml);
@@ -38,10 +39,11 @@ document.addEventListener("DOMContentLoaded", createTile, false);
  * @param {string} tileId Id of the secondary tile (so it can be replaced by a matching id). Defaults to the activationArguments.
  * @param {string} logoUri Uri of the logo to display on the tile.
  * @param {string} uriSmallLogo Uri of the small logo to display on the tile.
+ * @param {string} something This is something important.
  * @see https://raw.githubusercontent.com/JimGaleForce/Windows-universal-js-samples/master/win10/images/pinCommand.PNG
  * @returns {Promise} promise.
  */
-function createSecondaryTile(text, activationArguments, tileId = null, logoUri = null, uriSmallLogo = null) {
+function createSecondaryTile(text, activationArguments, tileId = null, logoUri = null, uriSmallLogo = null, something = "123") {
     var currentTime = new Date();
     logoUri = logoUri || new Windows.Foundation.Uri("ms-appx:///images/Square150x150Logo.png");
     uriSmallLogo = uriSmallLogo || new Windows.Foundation.Uri("ms-appx:///images/Square44x44Logo.png");
