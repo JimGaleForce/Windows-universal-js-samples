@@ -87,7 +87,7 @@ function createSecondaryTile(text, activationArguments, tileId = null, logoUri =
 
 document.addEventListener("DOMContentLoaded", createSecondaryTile, false);
 
-var generateTileBindingMedium = function (username, avatarLogoSource) {
+var generateTileBindingMedium = function (username, avatarLogoSource, linesOfText, styles) {
     var tileBinding = new Microsoft.Toolkit.Uwp.Notifications.TileBinding();
 
     tileBinding.content = new Microsoft.Toolkit.Uwp.Notifications.TileBindingContentAdaptive();
@@ -98,15 +98,18 @@ var generateTileBindingMedium = function (username, avatarLogoSource) {
 
     tileBinding.content.textStacking = Microsoft.Toolkit.Uwp.Notifications.TileTextStacking.center;
 
-    var adaptativeText1 = new Microsoft.Toolkit.Uwp.Notifications.AdaptiveText();
-    adaptativeText1.text = "Hi,";
-    adaptativeText1.hintAlign = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextAlign.center;
-    adaptativeText1.hintStyle = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.base;
 
-    var adaptativeText2 = new Microsoft.Toolkit.Uwp.Notifications.AdaptiveText();
-    adaptativeText2.text = username;
-    adaptativeText2.hintAlign = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextAlign.center;
-    adaptativeText2.hintStyle = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.captionSubtle;
+
+    if (linesOfText !== null) {
+        for (var i = 0; i < linesOfText.length; i++) {
+            var adaptativeText = new Microsoft.Toolkit.Uwp.Notifications.AdaptiveText();
+            adaptativeText.text = linesOfText[i];
+            adaptativeText.hintAlign = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextAlign.center;
+            adaptativeText.hintStyle = styles[Math.min(i, styles.length - 1)];
+
+            tileBinding.content.children.push(adaptativeText);
+        }
+    }
 
     tileBinding.content.children.push(adaptativeText1);
     tileBinding.content.children.push(adaptativeText2);
@@ -114,7 +117,7 @@ var generateTileBindingMedium = function (username, avatarLogoSource) {
     return tileBinding;
 };
 
-var generateTileBindingWide = function (username, avatarLogoSource) {
+var generateTileBindingWide = function (username, avatarLogoSource, linesOfText) {
     var tileBinding = new Microsoft.Toolkit.Uwp.Notifications.TileBinding();
 
     tileBinding.content = new Microsoft.Toolkit.Uwp.Notifications.TileBindingContentAdaptive();
@@ -133,6 +136,7 @@ var generateTileBindingWide = function (username, avatarLogoSource) {
     var adaptativeText1 = new Microsoft.Toolkit.Uwp.Notifications.AdaptiveText();
     adaptativeText1.text = "Hi,";
     adaptativeText1.hintStyle = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.title;
+
     var adaptativeText2 = new Microsoft.Toolkit.Uwp.Notifications.AdaptiveText();
     adaptativeText2.text = username;
     adaptativeText2.hintStyle = Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.subtitleSubtle;
@@ -147,7 +151,7 @@ var generateTileBindingWide = function (username, avatarLogoSource) {
     return tileBinding;
 };
 
-var generateTileBindingLarge = function (username, avatarLogoSource) {
+var generateTileBindingLarge = function (username, avatarLogoSource, linesOfText) {
     var tileBinding = new Microsoft.Toolkit.Uwp.Notifications.TileBinding();
 
     tileBinding.content = new Microsoft.Toolkit.Uwp.Notifications.TileBindingContentAdaptive();
@@ -190,12 +194,13 @@ var generateTileBindingLarge = function (username, avatarLogoSource) {
     return tileBinding;
 };
 
-var generateTileContent = function (username, avatarLogoSource) {
+var generateTileContent = function (username, avatarLogoSource, linesOfText) {
     var tileContent = new Microsoft.Toolkit.Uwp.Notifications.TileContent();
     tileContent.visual = new Microsoft.Toolkit.Uwp.Notifications.TileVisual();
-    tileContent.visual.tileMedium = generateTileBindingMedium(username, avatarLogoSource);
-    tileContent.visual.tileWide = generateTileBindingWide(username, avatarLogoSource);
-    tileContent.visual.tileLarge = generateTileBindingLarge(username, avatarLogoSource);
+    tileContent.visual.tileMedium = generateTileBindingMedium(username, avatarLogoSource, linesOfText,
+        [Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.base, Microsoft.Toolkit.Uwp.Notifications.AdaptiveTextStyle.captionSubtle]);
+    tileContent.visual.tileWide = generateTileBindingWide(username, avatarLogoSource, linesOfText);
+    tileContent.visual.tileLarge = generateTileBindingLarge(username, avatarLogoSource, linesOfText);
 
     return tileContent;
 };
@@ -207,6 +212,7 @@ var generateTileContent = function (username, avatarLogoSource) {
  * @param {string} text Text to display on the secondary tile.
  * @param {string} activationArguments Arguments to include when the tile activates the app.
  * @param {string} tileId Id of the secondary tile (so it can be replaced by a matching id). Defaults to the activationArguments.
+ * @param {array[string]} linesOfText Lines of text to put on the tile. Defaults to nothing.
  * @param {string} imageForTile Uri of the image to display on the tile. Defaults to square44x44Logo png in assets.
  * @param {string} square150x150Logo Uri of the logo to display on the tile. Defaults to same named png in assets.
  * @param {string} wide310x150Logo Uri of the logo to display on the tile. Defaults to same named png in assets.
@@ -215,7 +221,7 @@ var generateTileContent = function (username, avatarLogoSource) {
  * @returns {Promise} promise.
  */
 
-function pinTile(text, activationArguments, tileId = null, imageForTile = null,
+function pinTile(text, activationArguments, tileId = null, linesOfText = null, imageForTile = null,
     square150x150Logo = null, wide310x150Logo = null, square310x310Logo = null) {
     var tile = new Windows.UI.StartScreen.SecondaryTile(new Date().getTime());
 
@@ -238,7 +244,7 @@ function pinTile(text, activationArguments, tileId = null, imageForTile = null,
     tile.requestCreateAsync()
         .then(function () {
             // generate the tile notification content and update the tile
-            var content = generateTileContent(text, imageForTile);
+            var content = generateTileContent(text, imageForTile, linesOfText);
             var tileNotification = new Windows.UI.Notifications.TileNotification(content.getXml());
             Windows.UI.Notifications.TileUpdateManager.createTileUpdaterForSecondaryTile(tile.TileId).update(tileNotification);
         });
