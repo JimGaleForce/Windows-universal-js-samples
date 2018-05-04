@@ -8,7 +8,8 @@
  * After your app is installed, you can change your tile's content through notifications.
  * With this snippet you can personalize your tile experience.
  *
- * @method Create Tile
+ * @alias Create Tile
+ * @method createTile
  * @param {string} text Text to display on the tile.
  * @param {float} durationSeconds Duration to display the tile, in seconds. Defaults to 10.
  *
