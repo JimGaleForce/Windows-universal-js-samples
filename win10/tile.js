@@ -4,8 +4,9 @@
  */
 
 /**
- * createTile
+ * create Tiles to use into windows 10 application. Enfoy of our Windows 10 features =0)
  *
+ * @method Create main Tile
  * @param {string} text Text to display on the tile.
  * @param {float} durationSeconds Duration to display the tile, in seconds. Defaults to 10.
  *
