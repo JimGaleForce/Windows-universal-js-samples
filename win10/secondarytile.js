@@ -7,7 +7,8 @@
  * Secondary tiles allow users to pin specific content and deep links from your app onto their Start menu, providing easy future access to the content within your app. 
  * This snippet allow you to creates, enumerates, and provides information about a secondary tile.
  *
- * @method Create Secondary Tile
+ * @alias Secondary Tile
+ * @method createSecondaryTile
  * @param {string} text Text to display on the secondary tile.
  * @param {string} activationArguments Arguments to include when the tile activates the app.
  * @param {string} tileId Id of the secondary tile (so it can be replaced by a matching id). Defaults to the activationArguments.
