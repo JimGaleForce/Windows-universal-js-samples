@@ -4,9 +4,9 @@
  */
 
 /**
- * create Tiles to use into windows 10 application. Enfoy of our Windows 10 features =0)
+ * A tile is an app's representation on the Start menu, every app has a tile. Windows displays this tile when your app is first installed. After your app is installed, you can change your tile's content through notifications. With this snippet you can personalize your tile experience.
  *
- * @method Create main Tile
+ * @method Create Tile
  * @param {string} text Text to display on the tile.
  * @param {float} durationSeconds Duration to display the tile, in seconds. Defaults to 10.
  *
@@ -33,8 +33,10 @@ function createTile(text, durationSeconds = 10) {
 document.addEventListener("DOMContentLoaded", createTile, false);
 
 /**
- * createSecondaryTile creates a secondary tile.
+ * Secondary tiles allow users to pin specific content and deep links from your app onto their Start menu, providing easy future access to the content within your app. 
+ * This snippet allow you to creates, enumerates, and provides information about a secondary tile.
  *
+ * @method Create Secondary Tile
  * @param {string} text Text to display on the secondary tile.
  * @param {string} activationArguments Arguments to include when the tile activates the app.
  * @param {string} tileId Id of the secondary tile (so it can be replaced by a matching id). Defaults to the activationArguments.
