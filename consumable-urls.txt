@@ -1,1 +1,2 @@
-https://raw.githubusercontent.com/JimGaleForce/Windows-universal-js-samples/master/win10/tile.js
+https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/tile.js
+https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/secondarytile.js
