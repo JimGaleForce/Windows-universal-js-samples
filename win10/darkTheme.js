@@ -9,11 +9,8 @@
  *
  * @alias Create Dark Theme Check
  * @method createSecondaryTile
- * @returns {string} "dark" or "light".
+ * @returns {string} theme
  */
-
-
-
 
 function checkForDarkTheme(){
     if ( window.Windows ){
@@ -23,7 +20,7 @@ function checkForDarkTheme(){
           if(color.b === 0){
             return "dark"
           }else{
-              return "light"
+            return "light"
           }
       }
     }
