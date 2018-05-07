@@ -1,4 +1,5 @@
 https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/tile.js
 https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/secondarytile.js
 https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/darkTheme.js
+https://raw.githubusercontent.com/southworkscom/Windows-universal-js-samples/dev/win10/appTitleBar.js
 

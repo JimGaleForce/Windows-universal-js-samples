@@ -8,22 +8,19 @@
  * This call returns "dark" or "light" for you to set your css
  *
  * @alias Create Dark Theme Check
- * @method createSecondaryTile
- * @returns {string} "dark" or "light".
+ * @method checkForDarkTheme
+ * @returns {string} theme
  */
 
-
-
-
 function checkForDarkTheme(){
-    if ( window.Windows ){
-        // Change the theme
-        var uiSettings = new Windows.UI.ViewManagement.UISettings();
-          var color = uiSettings.getColorValue(Windows.UI.ViewManagement.UIColorType.background)
-          if(color.b === 0){
-            return "dark"
-          }else{
-              return "light"
-          }
-      }
+  if ( window.Windows ){
+    // Change the theme
+    var uiSettings = new Windows.UI.ViewManagement.UISettings();
+    var color = uiSettings.getColorValue(Windows.UI.ViewManagement.UIColorType.background)
+    if(color.b === 0){
+      return "dark"
+    }else{
+      return "light"
     }
+  }
+}
