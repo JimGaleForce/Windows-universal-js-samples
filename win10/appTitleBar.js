@@ -8,18 +8,18 @@
  *
  * @alias Change app title bar color
  * @method changeAppTitleBarColor
- * @param {string} backgroundColor RGB Background color.
- * @param {string} foregroundColor RGB foreground color.
- * @param {string} buttonBackgroundColor RGB button background color.
- * @param {string} buttonForegroundColor RGB button foreground color.
- * @param {string} buttonHoverBackgroundColor RGB button hover Background color.
- * @param {string} buttonHoverForegroundColor RGB button hover foreground color.
- * @param {string} buttonPressedBackgroundColor RGB button pressed background color.
- * @param {string} buttonPressedForegroundColor RGB button pressed foreground color.
- * @param {string} inactiveBackgroundColor RGB inactive background color.
- * @param {string} inactiveForegroundColor RGB inactive foreround color.
- * @param {string} buttonInactiveBackgroundColor RGB button inactive background color.
- * @param {string} buttonInactiveForegroundColor RGB button inactive foreground color.
+ * @param {Rgb} [backgroundColor={ a: 255, r: 54, g: 60, b: 116 }] RGB Background color.
+ * @param {Rgb} [foregroundColor={ a: 255, r: 232, g: 211, b: 162 }] RGB foreground color.
+ * @param {Rgb} [buttonBackgroundColor={ a: 255, r: 54, g: 60, b: 116 }] RGB button background color.
+ * @param {Rgb} [buttonForegroundColor={ a: 255, r: 232, g: 211, b: 162 }] RGB button foreground color.
+ * @param {Rgb} [buttonHoverBackgroundColor={ a: 255, r: 19, g: 21, b: 40 }] RGB button hover Background color.
+ * @param {Rgb} [buttonHoverForegroundColor={ a: 255, r: 255, g: 255, b: 255 }] RGB button hover foreground color.
+ * @param {Rgb} [buttonPressedBackgroundColor={ a: 255, r: 232, g: 211, b: 162 }] RGB button pressed background color.
+ * @param {Rgb} [buttonPressedForegroundColor={ a: 255, r: 54, g: 60, b: 116 }] RGB button pressed foreground color.
+ * @param {Rgb} [inactiveBackgroundColor={ a: 255, r: 135, g: 141, b: 199 }] RGB inactive background color.
+ * @param {Rgb} [inactiveForegroundColor={ a: 255, r: 232, g: 211, b: 162 }] RGB inactive foreround color.
+ * @param {Rgb} [buttonInactiveBackgroundColor={ a: 255, r: 135, g: 141, b: 199 }] RGB button inactive background color.
+ * @param {Rgb} [buttonInactiveForegroundColor={ a: 255, r: 232, g: 211, b: 162 }] RGB button inactive foreground color.
  */
 
 function changeAppTitleBarColor(backgroundColor, foregroundColor, buttonBackgroundColor, buttonForegroundColor, 
