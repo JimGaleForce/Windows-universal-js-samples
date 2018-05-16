@@ -9,7 +9,7 @@
  *
  * @alias Toggle Compact Overlay mode
  * @method toggleCompactOverlayMode
- * @param {boolean} [forceCompactOverlay=false] Forces into Compact Overlay mode.
+ * @param {boolean} [forceCompactOverlay=false] Force Compact Overlay mode.
  * @returns {Promise} Promise with new mode value (1=CompactOverlay | 0=Default).
  * @see https://docs.microsoft.com/en-us/uwp/api/windows.ui.viewmanagement.applicationviewmode
  */
