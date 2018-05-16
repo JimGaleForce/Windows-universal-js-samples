@@ -2,4 +2,8 @@ https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/maste
 https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/secondarytile.js
 https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/darkTheme.js
 https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/appTitleBar.js
-
+https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/toastNotification.js
+https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/compactOverlay.js
+https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/timeline.js
+https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/desktopBg.js
+https://raw.githubusercontent.com/pwa-builder/Windows-universal-js-samples/master/win10/lockscreenBg.js
