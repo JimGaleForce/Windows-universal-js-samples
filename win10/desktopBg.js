@@ -4,7 +4,7 @@
  */
 
 /**
- * Attempts to set the specified image file as the desktop wallpaper image.
+ * Attempts to set the specified image file as the desktop wallpaper image. Requires "uap:Capability" with value "userAccountInformation".
  * @alias Change Desktop Background
  * @method changeDesktopBackgroundImage
  * @param {string} localImagePath Path to the stored image, as part of the application resources/assets.

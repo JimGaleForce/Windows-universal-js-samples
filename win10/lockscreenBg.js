@@ -4,7 +4,7 @@
  */
 
 /**
- * Attempts to set the specified image file as the lock screen background image.
+ * Attempts to set the specified image file as the lock screen background image. Requires "uap:Capability" with value "userAccountInformation".
  * @alias Change Lock Screen Background
  * @method changeWindowsLockScreenImage
  * @param {string} localImagePath Path to the stored image, as part of the application resources/assets.
